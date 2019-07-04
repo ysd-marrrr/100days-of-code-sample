@@ -1,0 +1,12 @@
+@mixin contents-container($background) {
+  background-color: $background;
+  padding: 200px 0;
+}
+
+.contents-1 {
+  @include contents-container(orange);
+}
+
+.contents-2 {
+  @include contents-container(white);
+}

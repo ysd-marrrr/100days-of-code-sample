@@ -1,0 +1,41 @@
+.hero {
+  background-color: $heroColor;
+  padding: 200px 0;
+
+  .container {
+    margin: 0 auto;
+    width: 80%;
+
+    h2 {
+      font-size: 60px;
+      margin: 0;
+
+      .emphasized {
+        color: red;
+      }
+    }
+
+  }
+}
+
+@media(max-width: $tbMaxWidth) {
+  .hero {
+    .container {
+      width: 90%;
+
+      h2 {
+        font-size: 38px;
+      }
+    }
+  }
+}
+
+
+@media(max-width: $spMaxWidth) {
+  .hero {
+    .container {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

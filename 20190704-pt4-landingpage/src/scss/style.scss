@@ -1,0 +1,15 @@
+// 色とレスポンシブの設定
+@import "colorstyle";
+$spMaxWidth: 670px;
+$tbMaxWidth: 1000px;
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+// 各パーツのSassを読み込む
+@import "header";
+@import "hero";
+@import "contents";
+@import "footer";
