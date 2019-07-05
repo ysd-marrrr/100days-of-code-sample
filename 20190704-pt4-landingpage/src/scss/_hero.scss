@@ -1,23 +1,34 @@
 .hero {
+  margin-top: $headerHeight;
   background-color: $heroColor;
   padding: 200px 0;
 
   .container {
     margin: 0 auto;
     width: 80%;
+  }
+
+  .message {
+    width: 60%;
+    float: left;
 
     h2 {
       font-size: 60px;
+      letter-spacing: 5px;
       margin: 0;
 
       .emphasized {
         color: red;
       }
     }
+  }
 
+  .top-form {
+    background: rgba(255, 255, 255, 0.4);
+    overflow: auto;
+    width: 40%;
   }
 }
-
 @media(max-width: $tbMaxWidth) {
   .hero {
     .container {
@@ -29,12 +40,18 @@
     }
   }
 }
-
-
 @media(max-width: $spMaxWidth) {
   .hero {
     .container {
       margin: 0;
+      width: 100%;
+    }
+
+    .message {
+      width: 100%;
+    }
+
+    .top-form {
       width: 100%;
     }
   }

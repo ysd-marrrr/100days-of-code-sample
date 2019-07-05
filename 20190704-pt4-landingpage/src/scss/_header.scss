@@ -1,38 +1,52 @@
 header {
-  padding: 10px 0;
-  box-shadow: 0 10px lighten(#000000, 10%);
+  height: 64px;
+  box-shadow: 100px 0px black;
+  background-color: rgba(255, 255, 255, 0.6);
   z-index: 10;
-  
+  width: 100%;
+  position: fixed;
+  top: 0;
+
   h1 {
-    margin: 0;
+    margin: 0 0 0 10px;
+    font-size: 24px;
+    line-height: 64px;
   }
 
-  .container {
-    .header-logo {
+  .header-logo {
+    float: left;
+  }
+
+  .header-menu {
+    float: right;
+    margin: 0;
+
+    li {
+      list-style: none;
       float: left;
-    }
 
-    .header-menu {
-      float: right;
-      margin: 0;
+      a {
+        height: 64px;
+        line-height: 64px;
+        padding-left: 30px;
+        padding-right: 30px;
+        text-decoration: none;
+        display: block;
+        background-color: $basicButtonColor;
 
-      li {
-        list-style: none;
-        float: left;
+        &.signup {
+          background-color: $mainButtonColor;
+          color: white;
+          padding-right: 40px;
+          padding-left: 40px;
+        }
 
-        a {
-          line-height: 20px;
-          padding: 20px;
-          text-decoration: none;
-          display: block;
-          background-color: green;
+        &.active {
+          background-color: $activeButtonColor;
+        }
 
-          &.signup {
-            background-color: $mainButtonColor;
-            color: white;
-            padding-right: 40px;
-            padding-left: 40px;
-          }
+        &:hover {
+          background-color: $hoverButtonColor;
         }
       }
     }
@@ -40,10 +54,8 @@ header {
 }
 @media (max-width: $spMaxWidth) {
   header {
-    .container {
-      .header-menu {
-        display: none;
-      }
+    .header-menu {
+      display: none;
     }
   }
 }
