@@ -1,6 +1,6 @@
 header {
-  height: 64px;
-  box-shadow: 100px 0px black;
+  height: $headerHeight;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
   background-color: rgba(255, 255, 255, 0.6);
   z-index: 10;
   width: 100%;
@@ -10,7 +10,7 @@ header {
   h1 {
     margin: 0 0 0 10px;
     font-size: 24px;
-    line-height: 64px;
+    line-height: $headerHeight;
   }
 
   .header-logo {
@@ -26,15 +26,17 @@ header {
       float: left;
 
       a {
-        height: 64px;
-        line-height: 64px;
+        height: 56px;
+        line-height: $headerHeight;
         padding-left: 30px;
         padding-right: 30px;
         text-decoration: none;
         display: block;
-        background-color: $basicButtonColor;
+        border-botom: 4px solid $basicButtonColor;
 
         &.signup {
+          height: $headerHeight;
+          border-bottom: 0;
           background-color: $mainButtonColor;
           color: white;
           padding-right: 40px;
@@ -42,13 +44,28 @@ header {
         }
 
         &.active {
-          background-color: $activeButtonColor;
+          border-bottom: $headerMenuIndicatorHeight solid $activeButtonColor;
         }
 
         &:hover {
-          background-color: $hoverButtonColor;
+          border-bottom: $headerMenuIndicatorHeight solid $hoverButtonColor;
+
+          &.signup {
+            border-bottom: 0;
+          }
         }
       }
+    }
+  }
+
+  .sp-menu-icon {
+    display: none;
+    float: right;
+    span {
+      margin: 0 10px 0 0;
+      height: $headerHeight;
+      line-height: 64px;
+      font-size: 30px;
     }
   }
 }
@@ -56,6 +73,10 @@ header {
   header {
     .header-menu {
       display: none;
+    }
+
+    .sp-menu-icon {
+      display: block;
     }
   }
 }

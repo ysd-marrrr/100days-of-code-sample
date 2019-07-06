@@ -2,7 +2,10 @@
 @import "colorstyle";
 $spMaxWidth: 670px;
 $tbMaxWidth: 1000px;
+
+// ヘッダー部の大きさ
 $headerHeight: 64px;
+$headerMenuIndicatorHeight: 8px;
 
 body {
   font-family: sans-serif;

@@ -1,7 +1,10 @@
 .hero {
   margin-top: $headerHeight;
-  background-color: $heroColor;
-  padding: 200px 0;
+  background: url(../img/computer-768608_1920.jpg);
+  background-size: cover;
+  background-position: bottom;
+  color: white;
+  padding: 300px 0;
 
   .container {
     margin: 0 auto;
@@ -24,13 +27,38 @@
   }
 
   .top-form {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     overflow: auto;
     width: 40%;
+    border-radius: 3px;
+
+    // 枠と文字の間に余白を持たせるため、中にブロックを作ってmarginで余白を設定する
+    .form-messages {
+      margin: 10px;
+    }
+
+    .btn {
+      padding: 15px;
+      margin: 20px 0;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: 3px;
+      color: white;
+      background-color: gray;
+      border-radius: 5px;
+      box-shadow: 0 10px 0 darken(gray, 20%);
+
+      &.btn-regist-twitter{
+        background-color: #4c6ef5;
+      }
+    }
   }
 }
 @media(max-width: $tbMaxWidth) {
   .hero {
+    padding: 200px 0;
+
     .container {
       width: 90%;
 
@@ -42,6 +70,8 @@
 }
 @media(max-width: $spMaxWidth) {
   .hero {
+
+
     .container {
       margin: 0;
       width: 100%;
@@ -49,10 +79,13 @@
 
     .message {
       width: 100%;
+      clear: left;
     }
 
     .top-form {
+      border-radius: 0;
       width: 100%;
+      margin-top: 100px;
     }
   }
 }

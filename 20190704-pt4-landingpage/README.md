@@ -85,6 +85,10 @@ npx parcel ./src/index.html
 
 #### 4. `http://localhost:1234/` で確認する
 
+## 背景画像について
+
+<a href="https://pixabay.com/ja/users/Free-Photos-242387/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=768608">Free-Photos</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=768608">Pixabay</a>からの画像
+
 ## 参考
 
 thx!
