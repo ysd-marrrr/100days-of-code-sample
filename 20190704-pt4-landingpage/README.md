@@ -13,6 +13,9 @@ Progateでいうとこの知識だけでできると思います。
 
 **JavaScript(ES6) / jQueryのレッスンをやっていない状態を想定しているので、メニューをクリックしたときの動きはありません。**
 
+<img src="./sample_img/sample-pt4-pc.png" alt="PCでの表示サンプル" width="300px">
+<img src="./sample_img/sample-pt4-sp.png" alt="スマートフォンでの表示サンプル" width="300px">
+
 
 ### 構造が込み入ってるよ？
 
