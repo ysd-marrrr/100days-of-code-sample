@@ -1,12 +1,116 @@
-@mixin contents-container($background) {
-  background-color: $background;
-  padding: 200px 0;
+@mixin _plan-icon($planColor, $iconTextColor, $iconTextSize) {
+  width: 200px;
+  height: 200px;
+  font-size: $iconTextSize;
+  line-height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: $planColor;
+  color: $iconTextColor;
+}
+@mixin plan-card($planColor, $iconTextColor: white, $iconTextSize: 30px) {
+  .plan-icon {
+    @include _plan-icon($planColor, $iconTextColor, $iconTextSize);
+  }
+
+  p {
+    height: 3em;
+  }
+  background-color: lighten($planColor, 20%);
+
+  &:hover {
+    top: -20px;
+  }
 }
 
-.contents-1 {
-  @include contents-container(orange);
+.contents {
+  text-align: center;
+  padding: 50px 0;
 }
 
-.contents-2 {
-  @include contents-container(white);
+.feature-list {
+  display: flex;
+  margin: 50px auto 0;
+  width: 75%;
+
+  .feature-icon {
+    font-size: 60px;
+    margin: 0;
+  }
+
+  .features {
+    width: 30%;
+    margin: 3%;
+  }
+}
+
+.plan-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+
+  .plan-card {
+    list-style: none;
+    width: 24%;
+    margin: 20px 0;
+    padding: 40px 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 10px 10px gray;
+    position: relative;
+    transition: top 0.5s;
+    top: 0;
+  }
+}
+
+.plan-card {
+  &.free-plan {
+    @include plan-card(#f2dbaa, black);
+  }
+
+  &.small-plan {
+    @include plan-card(#f9d089, black);
+  }
+
+  &.large-plan {
+    @include plan-card(#f2c679, white, 50px);
+  }
+
+  &.xl-plan {
+    @include plan-card(#f2ab30, white, 80px);
+  }
+}
+@media(max-width: $tbMaxWidth) {
+  .feature-list {
+    width: 100%;
+  }
+
+  .plan-list {
+    .plan-card {
+      width: 49%;
+    }
+  }
+}
+@media(max-width: $spMaxWidth) {
+  .feature-list {
+    .feature-icon {
+      font-size: 45px;
+    }
+  }
+
+  .plan-list {
+    .plan-card {
+      width: 100%;
+
+      .plan-icon {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 30px;
+      }
+    }
+  }
 }

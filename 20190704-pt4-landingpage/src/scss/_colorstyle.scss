@@ -1,11 +1,7 @@
 // SIGN UPなどメインのボタン色
 $mainButtonColor: #55CCFF;
-
 // その他のボタン色
 $basicButtonColor: rgb(200, 240, 247);
-
 $hoverButtonColor: lighten($mainButtonColor, 10%);
 $activeButtonColor: darken($basicButtonColor, 10%);
-
-
 $heroColor: darken($mainButtonColor, 40%);

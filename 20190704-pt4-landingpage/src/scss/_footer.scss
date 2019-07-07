@@ -3,4 +3,20 @@ footer {
   color: white;
   height: 300px;
   padding: 20px;
+
+  .site-map {
+    li {
+      list-style: none;
+      line-height: 150%;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        color: $hoverButtonColor;
+      }
+    }
+  }
 }
