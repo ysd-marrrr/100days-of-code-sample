@@ -1,0 +1,32 @@
+.btn {
+  padding: 15px 20px;
+  margin: 20px 0;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: white;
+  background-color: #afafaf;
+  border-radius: 5px;
+  box-shadow: 0 10px 0 darken(#afafaf, 20%);
+
+  &.btn-regist-twitter {
+    background-color: #4c6ef5;
+    box-shadow: 0 7px 0 darken(#4c6ef5, 50%);
+  }
+
+  &:hover {
+    background-color: lighten(gray, 10%);
+    transition: all 0.7s;
+
+    &.btn-regist-twitter {
+      background-color: lighten(#4c6ef5, 10%);
+    }
+  }
+
+  &:active {
+    position: relative;
+    top: 10px;
+    box-shadow: none;
+    transition: none;
+  }
+}

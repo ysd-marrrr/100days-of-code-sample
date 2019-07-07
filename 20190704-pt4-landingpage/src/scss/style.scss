@@ -1,0 +1,24 @@
+// 色とレスポンシブの設定
+@import "colorstyle";
+$spMaxWidth: 670px;
+$tbMaxWidth: 1000px;
+// ヘッダー部の大きさ
+$headerHeight: 64px;
+$headerMenuIndicatorHeight: 8px;
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+// 共通して使われるパーツのSassを読み込む
+@import "button";
+// 各ブロックのSassを読み込む
+@import "header";
+@import "hero";
+@import "contents";
+@import "footer";

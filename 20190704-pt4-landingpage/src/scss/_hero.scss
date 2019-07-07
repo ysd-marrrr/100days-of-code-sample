@@ -1,0 +1,83 @@
+.hero {
+  margin-top: $headerHeight;
+  background: url("../img/computer-768608_1920.jpg");
+  background-size: cover;
+  background-position: bottom;
+  color: white;
+  padding: 300px 0;
+
+  .container {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .message {
+    width: 60%;
+    float: left;
+    text-shadow: 2px 2px 3px black;
+
+    h2 {
+      font-size: 60px;
+      letter-spacing: 5px;
+      margin: 0;
+
+      .emphasized {
+        color: red;
+      }
+    }
+  }
+
+  .top-form {
+    background: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    width: 40%;
+    padding: 25px 0;
+    border-radius: 3px;
+    // 枠と文字の間に余白を持たせるため、中にブロックを作ってmarginで余白を設定する
+    .form-messages {
+      margin: 10px;
+    }
+
+    .btn {
+      display: block;
+    }
+  }
+}
+@media(max-width: $tbMaxWidth) {
+  .hero {
+    padding: 200px 0;
+
+    .container {
+      width: 80%;
+
+      h2 {
+        font-size: 38px;
+      }
+    }
+  }
+}
+@media(max-width: $spMaxWidth) {
+  .hero {
+    padding-bottom: 0;
+
+    .container {
+      margin: 0;
+      width: 100%;
+    }
+
+    .message {
+      width: 100%;
+      margin: 0 10px;
+      clear: left;
+
+      p {
+        width: 80%;
+      }
+    }
+
+    .top-form {
+      border-radius: 0;
+      width: 100%;
+    }
+  }
+}
