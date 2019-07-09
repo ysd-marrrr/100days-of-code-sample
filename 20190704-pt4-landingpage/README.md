@@ -17,6 +17,14 @@ Progateでいうとこの知識だけでできると思います。
 <img src="./sample_img/sample-pt4-sp.png" alt="スマートフォンでの表示サンプル" width="300px">
 
 
+### `float: left;` を使っていない箇所があります。
+
+Flexboxが広く使われるようになった今では、Progateで紹介されている `float: left;` で  
+要素を横並びにさせるのは古いやり方になりました。  
+
+このプロジェクトでも `float: left` と Flexboxを両方使っています。
+
+
 ### 構造が込み入ってるよ？
 
 Scssが編集されたら自動でコンパイル・反映させたかったのでNode.js(yarn)のプロジェクトになっています。  
