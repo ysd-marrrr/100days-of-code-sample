@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue direct-JS Sample</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app1">
+    <h2>1. 宣言的レンダリング</h2>
+    <h3>テンプレート</h3>
+    {{ message }}
+
+    <h3>属性値</h3>
+    <button v-bind:title="message2">Hover Me!</button>
+  </div>
+
+  <!-- 下部に挿入しないと動作しない -->
+  <script src="./vuesample.js"></script>
+</body>
+
+</html>
