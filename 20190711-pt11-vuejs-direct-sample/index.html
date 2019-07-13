@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <h1>基本的な使い方</h1>
   <div id="app1">
     <h2>1. 宣言的レンダリング</h2>
     <h3>テンプレート</h3>
@@ -15,8 +16,29 @@
 
     <h3>属性値</h3>
     <button v-bind:title="message2">Hover Me!</button>
-  </div>
 
+    <h2>2. 条件分岐とループ</h2>
+    <p v-if="display">
+      表示できるはずです
+    </p>
+    <p v-if="!display">
+      見えたらおかしいですよね
+    </p>
+    <ul>
+      <li v-for="item in list">
+        {{ item.text }}
+      </li>
+    </ul>
+
+    <h2>{{ title3 }}</h2>
+    <button v-on:click="changeTitle">いたずらする</button>
+    <p>{{ afterTitle }}</p>
+    <input v-model="afterTitle" />
+
+    <h2>4. コンポーネントによる構成</h2>
+    <sample-component></sample-component>
+
+  </div>
   <!-- 下部に挿入しないと動作しない -->
   <script src="./vuesample.js"></script>
 </body>
