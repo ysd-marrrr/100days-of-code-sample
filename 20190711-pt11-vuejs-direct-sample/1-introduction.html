@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h1>基本的な使い方</h1>
+  <h1>基本的な使い方: はじめに</h1>
   <div id="app1">
     <h2>1. 宣言的レンダリング</h2>
     <h3>テンプレート</h3>
@@ -37,10 +37,16 @@
 
     <h2>4. コンポーネントによる構成</h2>
     <sample-component></sample-component>
+    <ul>
+      <sample-props-component
+        v-for="item in list"
+        v-bind:sample-item="item"
+        v-bind:key="item.id"></sample-props-component>
+    </ul>
 
   </div>
   <!-- 下部に挿入しないと動作しない -->
-  <script src="./vuesample.js"></script>
+  <script src="./vuesample-1.js"></script>
 </body>
 
 </html>
