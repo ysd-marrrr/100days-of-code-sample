@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
+<html lang="ja" dir="ltr"
 
 <head>
   <meta charset="utf-8">
   <title>3. テンプレート構文</title>
+  <link rel="stylesheet" type="text/css" href="vuesample.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
@@ -15,8 +16,33 @@
         <li>{{ notOnceMsg }}: 普通に変更される。</li>
         <li>{{ onceMsg }}: だと思ったか！まぁ、下のボタン押してみ。</li>
     </ul>
-    
     <button v-on:click="changeMessage()">変えたい！</button>
+
+    <h2>生のHTML: v-html</h2>
+    <p v-html="htmlMessage"></p>
+
+    <h2>属性: v-bind:attr</h2>
+    <p>属性を設定するには<span v-bind:class="emClass">v-bind</span>を使います。</p>
+    <p><input type="radio" name="radio-sample" value="A" v-bind:disabled="isRadioDisabled"> はたして<input type="radio" name="radio-sample" value="B" v-bind:disabled="isRadioDisabled"> 選択できるのでしょうか</p>
+    <button v-on:click="changeEmphasize()">トグる</button>
+
+    <h2>JavaScript式の使用</h2>
+    <p>{{ isJavaScriptSectionDisplayed ? "JavaScript式の結果によってコレが見えていると思います。" : "" }}</p>
+
+    <h2>ディレクティブ</h2>
+    <p v-if="isJavaScriptSectionDisplayed">v-ifの結果によってコレが見えていると思います。</p>
+    <h3>引数</h3>
+    <p><img v-bind:src="vueImageSrc" v-bind:width="imgWidth"/></p>
+    <p><a v-on:click="changeEmphasize" href="#">v-onでトグる</a></p>
+    <h3>動的引数</h3>
+    <!-- in-DOM テンプレートの中では、v-bind:[someattr] に変換されます -->
+    <p><a v-on:[toggle_event_name]="changeToggleMode" href="#" >v-onでトグる</a></p>
+
+    <h2>省略記法</h2>
+    <h3>v-bind</h3>
+    <p><img :src="vueImageSrc" :width="imgWidth" :title="imgTitle"></p>
+    <h3>v-on</h3>
+    <p @mouseover="changeEmphasize">Hover Me</p>
   </div>
   <script src="./vuesample-3.js"></script>
 </body>
