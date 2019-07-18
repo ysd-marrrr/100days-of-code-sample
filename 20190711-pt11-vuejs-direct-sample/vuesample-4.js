@@ -4,7 +4,8 @@ new Vue({
     basicMessage: "1. 基本的な例",
     inputString: "試しに何か入れてみてください",
     watchInputValue: "",
-    sampleString: "<strong>上のボックスに入れるとHTMLが無効になって表示されます</strong>"
+    sampleString:
+      "<strong>上のボックスに入れるとHTMLが無効になって表示されます</strong>"
   },
   computed: {
     reversedBasicMessage: function() {
@@ -24,15 +25,15 @@ new Vue({
     },
     sampleHtml: {
       get: function() {
-        return this.sampleString
+        return this.sampleString;
       },
       set: function(newValue) {
-
-        this.sampleString = (newValue + '').replace(/&/g,'&amp;')
-        .replace(/"/g,'&quot;')
-        .replace(/'/g,'&#039;')
-        .replace(/</g,'&lt;')
-        .replace(/>/g,'&gt;'); 
+        this.sampleString = (newValue + "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
       }
     }
   },
@@ -46,15 +47,14 @@ new Vue({
     },
     methodTime: function() {
       return Date.now();
-    },
-
+    }
   },
   watch: {
     inputString: function(val) {
       this.watchInputValue = val
-      .split("")
-      .reverse()
-      .join("");
+        .split("")
+        .reverse()
+        .join("");
     }
   }
 });
