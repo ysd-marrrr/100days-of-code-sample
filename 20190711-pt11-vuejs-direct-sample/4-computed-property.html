@@ -5,6 +5,8 @@
     <title>4. 算出プロパティとウォッチャ</title>
     <link rel="stylesheet" type="text/css" href="vuesample.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   </head>
   <body>
     <h1>基本的な使い方: 算出プロパティとウォッチャ</h1>
@@ -28,10 +30,13 @@
       </ul>
 
       <h2>4. 算出 Setter 関数</h2>
-      <input v-model="sampleHtml" />
+      <input v-model="sampleHtml" placeholder="検索したいキーワードを入力…"/>
       <p v-html="sampleHtml"></p>
 
       <h2>ウォッチャ</h2>
+      <p>検索したい単語を入れてね</p>
+      <p><input v-model="searchBox"></p>
+      <p v-html="searchResult"></p>
     </div>
     <script src="./vuesample-4.js"></script>
   </body>
