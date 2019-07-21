@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>6. 条件付きレンダリング</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: 条件付きレンダリング</h1>
+    <div id="app1">
+      <h2>1. v-if</h2>
+      <p v-if="isMainMessageVisible">このメッセージは見えます</p>
+      <p v-if="!isMainMessageVisible">このメッセージは見えません</p>
+      <template v-if="isSubListVisible">
+        <p>このリストは見えているはずです</p>
+        <ul>
+          <li>ほら</li>
+          <li>こんなふうに</li>
+          <li>ねっ</li>
+        </ul>
+      </template>
+      <h3>v-if / v-else-if / v-else</h3>
+      <p v-if="randomScore > 0.7">上位30%ぐらいのウンの良さを持っていますね</p>
+      <p v-else-if="randomScore > 0.4">まぁ、こんなものでしょう</p>
+      <p v-else>次回にご期待下さい</p>
+
+      <h2>2. key による再利用可能な要素の制御</h2>
+      <h3>key指定なし</h3>
+      <template v-if="showPage === 'omote'">
+        <p>表ページで使うユーザー名を指定してください。</p>
+        <input placeholder="ユーザー名"></input>
+        <button @click="changePage">裏ページの設定へ</button>
+      </template>
+      <template v-else>
+        <p><strong>裏ページ</strong> で使うユーザー名を指定してください。</p>
+        <input placeholder="ユーザー名"></input>
+        <button @click="changePage">表ページの設定へ</button>
+      </template>
+
+      <h3>key指定あり</h3>
+      <template v-if="showPage === 'omote'">
+        <p>表ページで使うユーザー名を指定してください。</p>
+        <input placeholder="ユーザー名" key="username-omote"></input>
+        <button @click="changePage">裏ページの設定へ</button>
+      </template>
+      <template v-else>
+        <p><strong>裏ページ</strong> で使うユーザー名を指定してください。</p>
+        <input placeholder="ユーザー名" key="username-ura"></input>
+        <button @click="changePage">表ページの設定へ</button>
+      </template>
+
+      <h2>3. v-show</h2>
+      <p v-show="isMainMessageVisible">このメッセージは見えます</p>
+      <p v-show="!isMainMessageVisible">このメッセージは見えません</p>
+      <template v-show="isSubListVisible">
+        <p>このリストは見えているはずです</p>
+        <ul>
+          <li>ほら</li>
+          <li>こんなふうに</li>
+          <li>ねっ</li>
+        </ul>
+      </template>
+    </div>
+    <script src="./vuesample-6.js"></script>
+  </body>
+</html>
