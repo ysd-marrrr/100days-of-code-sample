@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>9. フォーム入力バインディング</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: フォーム入力バインディング</h1>
+    <div id="app1">
+      <h2>1. 基本的な使い方</h2>
+      <h3>テキストボックス</h3>
+      <p>{{ message }}</p>
+      <input v-model="message" />
+
+      <h3>テキストエリア</h3>
+      <p style="white-space: pre-line;">{{ multiLineMessage }}</p>
+      <textarea v-model="multiLineMessage"></textarea>
+
+      <h3>チェックボックス</h3>
+      <div>
+        <input type="checkbox" id="checkbox1" v-model="checked[0]" /><label
+          for="checkbox1"
+          >最初からOFFなチェックボックス: {{ checked[0] }}</label
+        ><br />
+        <input type="checkbox" id="checkbox2" v-model="checked[1]" /><label
+          for="checkbox2"
+          >最初からONなチェックボックス: {{ checked[1] }}</label
+        >
+      </div>
+
+      <h4>値付き</h4>
+      <div id="example-3">
+        <input
+          type="checkbox"
+          id="name1"
+          value="山田"
+          v-model="selectedNames"
+        />
+        <label for="name1">山田</label>
+        <input
+          type="checkbox"
+          id="name2"
+          value="吉田"
+          v-model="selectedNames"
+        />
+        <label for="name2">吉田</label>
+        <input
+          type="checkbox"
+          id="name3"
+          value="田中"
+          v-model="selectedNames"
+        />
+        <label for="name3">田中</label>
+        <br />
+        <span>チェック済: {{ selectedNames }}</span>
+      </div>
+
+      <h3>ラジオボタン</h3>
+      <div>
+        <p>選局中: {{ radioTuned }}</p>
+        <input
+          type="radio"
+          id="radio1"
+          value="80.0MHz"
+          v-model="radioTuned"
+        /><label for="radio1">80.0MHz: A radio</label><br />
+        <input
+          type="radio"
+          id="radio2"
+          value="90.0MHz"
+          v-model="radioTuned"
+        /><label for="radio2">90.0MHz: B radio</label><br />
+        <input
+          type="radio"
+          id="radio3"
+          value="100.0MHz"
+          v-model="radioTuned"
+        /><label for="radio3">100.0MHz: C radio</label><br />
+      </div>
+
+      <h3>選択</h3>
+      <p>現在のモード: {{ selectedRadio }}</p>
+      <select v-model="selectedRadio">
+        <option disabled value="">AM/FM/simal</option>
+        <option>AM</option>
+        <option>FM</option>
+        <option>simal</option>
+      </select>
+
+      <h3>複数の選択</h3>
+      <p>
+        好きなラジオ局: {{ favoriteRadioStation }}<br />
+        Ctrl, Shiftキーで複数選択してね！
+      </p>
+      <select v-model="favoriteRadioStation" multiple>
+        <option>80.0MHz A radio</option>
+        <option>90.0MHz B radio</option>
+        <option>100.0MHz C radio</option>
+      </select>
+
+      <h3>動的なオプション</h3>
+      <p>
+        人気なラジオ局<br />
+        選択済み: {{ selectedFeaturedRadio }}
+      </p>
+      <select v-model="selectedFeaturedRadio" multiple>
+        <option v-for="item in featuredRadio" :value="item.value">{{
+          item.text
+        }}</option>
+      </select>
+
+      <h2>2. 値のバインディング</h2>
+      
+    </div>
+    <script src="./vuesample-9.js"></script>
+  </body>
+</html>
