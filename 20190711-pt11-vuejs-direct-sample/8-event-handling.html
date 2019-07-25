@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>8. イベントハンドリング</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: イベントハンドリング</h1>
+    <div id="app1">
+      <h2>1. イベントの購読</h2>
+      <p>{{ clickCounter }} 回このボタンにさわりました
+        <button @click="clickCounter += 1">ボタン</button>
+        <button @click="clickCounter = 0">リセット</button></p>
+
+      <h2>2. メソッドハンドラ</h2>
+      <p><button @click="greet">押してね</button></p>
+      <p>{{ greetingMessage }}</p>
+
+      <h2>3. インラインメソッドハンドラ</h2>
+      <p>{{ sampleMessage }}</p>
+      <p><button @click="changeMessage('hoge')">hoge</button> <button @click="changeMessage('hage')">hage</button></p>
+
+      <h2>4. イベント修飾子</h2>
+      <form @submit="greet"><input type="submit" value="preventナシ"></form>
+      <form @submit.prevent="greet"><input type="submit" value="preventあり"></form>
+
+      <h2>5. キー修飾子</h2>
+      <p>「a」は絶対に押すなよ！いいか、絶対に！！押すなよ！！！</p>
+      <input type="text" @keyup.65="keyWarning">
+    </div>
+    <script src="./vuesample-8.js"></script>
+  </body>
+</html>
