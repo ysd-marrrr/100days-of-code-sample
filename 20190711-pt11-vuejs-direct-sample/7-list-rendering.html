@@ -41,6 +41,25 @@
       </ul>
       <button onclick="changeListContent();">中身を変えたい！</button>
 
+      <h2>6. 範囲付きv-for</h2>
+      <ul>
+        <li v-for="n in 2"> {{ list[n].text }} </li>
+      </ul>
+
+      <h2>7. &lt;template&gt;でのv-for</h2>
+      <ul>
+        <template v-for="item in list">
+          <li>{{ item.text }}</li>
+          <li role="presentation">☆★☆★☆★☆★</li>
+        </template>
+      </ul>
+
+      <h2>8. v-forとv-if</h2>
+      <li v-for="item in list" v-if="!item.hoge"> {{ item.text }}</li>
+
+      <ul v-if="listDisplay">
+        <li v-for="item in list"> {{ item }} </li>
+      </ul>
     </div>
     <script src="./vuesample-7.js"></script>
   </body>

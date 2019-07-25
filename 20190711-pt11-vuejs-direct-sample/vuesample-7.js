@@ -25,7 +25,8 @@ vm = new Vue({
       description: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
     },
     petitList: ['a', 'b', 'c', 'd', 'e'],
-    unSortedList: ['e', 'f', 'a', 'e', '6', '5', '4', '7', 'd', '4', '6', 'b', 'e', 'e', 'e', '6', '7']
+    unSortedList: ['e', 'f', 'a', 'e', '6', '5', '4', '7', 'd', '4', '6', 'b', 'e', 'e', 'e', '6', '7'],
+    listDisplay: false
   },
   computed: {
     sortedList: function() {
