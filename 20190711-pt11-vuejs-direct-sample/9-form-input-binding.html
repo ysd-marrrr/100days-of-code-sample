@@ -31,7 +31,7 @@
       </div>
 
       <h4>値付き</h4>
-      <div id="example-3">
+      <div>
         <input
           type="checkbox"
           id="name1"
@@ -81,38 +81,146 @@
       </div>
 
       <h3>選択</h3>
-      <p>現在のモード: {{ selectedRadio }}</p>
-      <select v-model="selectedRadio">
-        <option disabled value="">AM/FM/simal</option>
-        <option>AM</option>
-        <option>FM</option>
-        <option>simal</option>
-      </select>
+      <div>
+        <p>現在のモード: {{ selectedRadio }}</p>
+        <select v-model="selectedRadio">
+          <option disabled value="">AM/FM/simal</option>
+          <option>AM</option>
+          <option>FM</option>
+          <option>simal</option>
+        </select>
+      </div>
 
       <h3>複数の選択</h3>
-      <p>
-        好きなラジオ局: {{ favoriteRadioStation }}<br />
-        Ctrl, Shiftキーで複数選択してね！
-      </p>
-      <select v-model="favoriteRadioStation" multiple>
-        <option>80.0MHz A radio</option>
-        <option>90.0MHz B radio</option>
-        <option>100.0MHz C radio</option>
-      </select>
+      <div>
+        <p>
+          好きなラジオ局: {{ favoriteRadioStation }}<br />
+          Ctrl, Shiftキーで複数選択してね！
+        </p>
+        <select v-model="favoriteRadioStation" multiple>
+          <option>80.0MHz A radio</option>
+          <option>90.0MHz B radio</option>
+          <option>100.0MHz C radio</option>
+        </select>
+      </div>
 
       <h3>動的なオプション</h3>
-      <p>
-        人気なラジオ局<br />
-        選択済み: {{ selectedFeaturedRadio }}
-      </p>
-      <select v-model="selectedFeaturedRadio" multiple>
-        <option v-for="item in featuredRadio" :value="item.value">{{
-          item.text
-        }}</option>
-      </select>
+      <div>
+        <p>
+          人気なラジオ局<br />
+          選択済み: {{ selectedFeaturedRadio }}
+        </p>
+        <select v-model="selectedFeaturedRadio" multiple>
+          <option v-for="item in featuredRadio" :value="item.value">{{
+            item.text
+          }}</option>
+        </select>
+      </div>
 
       <h2>2. 値のバインディング</h2>
-      
+      <div>
+        <p>
+          下のラジオボタンでメッセージを切り替えられます:
+          {{ selectedBindMessage }}
+        </p>
+        <input
+          type="radio"
+          v-model="selectedBindMessage"
+          :value="bindedSelection[0]"
+          id="bind-message-select-1"
+        /><label for="bind-message-select-1">Message A</label>
+        <input
+          type="radio"
+          v-model="selectedBindMessage"
+          :value="bindedSelection[1]"
+          id="bind-message-select-2"
+        /><label for="bind-message-select-2">Message B</label>
+      </div>
+
+      <h3>チェックボックス</h3>
+      <div>
+        <p>Vue.jsを勉強したいですか？ {{ selectedCheckMessage }}</p>
+        <input
+          type="checkbox"
+          v-model="selectedCheckMessage"
+          true-value="はい"
+          false-value="いいえ"
+          id="check-message"
+        /><label for="check-message">アナタの選択</label>
+      </div>
+
+      <h3>ラジオボタン</h3>
+      <div>
+        <p>選局中: {{ selectedPickMessage }}</p>
+        <input
+          type="radio"
+          id="radio10"
+          :value="featuredRadio[0]['stationName']"
+          v-model="selectedPickMessage"
+        /><label for="radio10">70.0MHz</label><br />
+        <input
+          type="radio"
+          id="radio11"
+          :value="featuredRadio[1]['stationName']"
+          v-model="selectedPickMessage"
+        /><label for="radio11">77.0MHz</label><br />
+        <input
+          type="radio"
+          id="radio12"
+          :value="featuredRadio[2]['stationName']"
+          v-model="selectedPickMessage"
+        /><label for="radio12">82.0MHz</label><br />
+      </div>
+
+      <h3>選択オプション</h3>
+      <div>
+        <select v-model="selectedSelectObject" @change="selectChange">
+          <option v-for="item in featuredRadio" :value="item">{{
+            item.text
+          }}</option>
+        </select>
+      </div>
+
+      <h2>3. 修飾子</h2>
+      <h3>.lazy</h3>
+      <div>
+        <p>{{ lazyInputedText }}</p>
+        <input
+          v-model.lazy="lazyInputedText"
+          placeholder="遅れて反映されると思います"
+        />
+      </div>
+
+      <h3>.number</h3>
+      <div>
+        <ul>
+          <li>
+            .numberなし: <input v-model="notCastedValue" /> typeof:
+            {{ typeof notCastedValue }}
+          </li>
+          <li>
+            .numberあり: <input v-model.number="castedValue" /> typeof:
+            {{ typeof castedValue }}
+          </li>
+        </ul>
+      </div>
+
+      <h3>.trim</h3>
+      <div>
+        <p>空白が取り除かれると思います</p>
+        <ul>
+          <li>
+            .trimなし: <input v-model="notTrimedInputValue" /> result:
+            <span style="background-color: aqua">{{
+              notTrimedInputValue
+            }}</span>
+          </li>
+          <li>
+            .trimあり: <input v-model.trim="trimedInputValue" /> result:
+            <span style="background-color: aqua">{{ trimedInputValue }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
     <script src="./vuesample-9.js"></script>
   </body>
