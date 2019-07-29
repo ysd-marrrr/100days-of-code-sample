@@ -13,7 +13,6 @@
       <div id="components-1"><radio-tuner></radio-tuner></div>
 
       <h2>2. コンポーネントの再利用</h2>
-
       <div id="components-2">
         <radio-tuner></radio-tuner>
         <radio-tuner></radio-tuner>
@@ -51,21 +50,27 @@
 
       <h2>5. 子コンポーネントのイベントを購読する</h2>
       <div id="components-5">
-          <p>Follower: {{ clickCount }}</p>
-          <div style="display: flex; justify-content: space-around">
-            <articles-count
-              v-for="item in articles"
-              :key="item.id"
-              :article="item"
-              @count-up="clickCount += 1"
-            ></articles-count>
-          </div>
-          <h3>イベントと値を送出する</h3>
-          <follow-up-tool
-              v-for="amount in [1, 100, 1000]"
-              :key="amount"
-              :amount="amount"
-              @count-up-amount="onCountUp"></follow-up-tool>
+        <p>Follower: {{ clickCount }}</p>
+        <div style="display: flex; justify-content: space-around">
+          <articles-count
+            v-for="item in articles"
+            :key="item.id"
+            :article="item"
+            @count-up="clickCount += 1"
+          ></articles-count>
+        </div>
+
+        <h3>イベントと値を送出する</h3>
+        <follow-up-tool
+          v-for="amount in [1, 100, 1000]"
+          :key="amount"
+          :amount="amount"
+          @count-up-amount="onCountUp"
+        ></follow-up-tool>
+
+        <h3>コンポーネントでv-modelを使う(v-on動作せず)</h3>
+        <p>{{ censoredMessage }}</p>
+        <custom-input v-model="censoredMessage"></custom-input>
       </div>
     </div>
     <script src="./vuesample-10.js"></script>

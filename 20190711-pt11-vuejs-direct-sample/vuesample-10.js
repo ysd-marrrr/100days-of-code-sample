@@ -45,7 +45,12 @@ Vue.component("articles-count", {
 Vue.component("follow-up-tool", {
   props: ['amount'],
   template: '<div><button @click="$emit(\'count-up-amount\', amount)"> + {{ amount }} </button></div>'
-})
+});
+
+Vue.component("custom-input", {
+  props: ['inputtedValue'],
+  template: `<input :value="inputtedValue" @input="$emit('onCustomInput', $event.target.value)"></input>`
+});
 
 new Vue({ el: "#components-1" });
 new Vue({ el: "#components-2" });
@@ -70,11 +75,16 @@ new Vue({
   el: "#components-5",
   data: {
     articles: sampleArticles,
-    clickCount: 0
+    clickCount: 0,
+    censoredMessage: 'ここに検閲された入力値が表示されます'
   },
   methods: {
     onCountUp: function (countupAmount) {
       this.clickCount += countupAmount;
+    },
+    onCustomInput: function (inputtedValue) {
+      console.log('inputted');
+      this.censoredMessage = "censored"
     }
   }
 });
