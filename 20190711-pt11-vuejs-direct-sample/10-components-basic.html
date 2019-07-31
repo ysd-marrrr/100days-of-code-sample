@@ -72,6 +72,34 @@
         <p>{{ censoredMessage }}</p>
         <custom-input v-model="censoredMessage"></custom-input>
       </div>
+
+      <div id="components-6">
+        <h2>6. スロットによるコンテンツ配信</h2>
+        <custom-message :title="title">
+          <p style="color: red; font-size: 150%">
+            メッセージ内にHTMLを埋め込めます
+          </p>
+        </custom-message>
+      </div>
+
+      <div id="components-7">
+        <h2>7. 動的なコンポーネント</h2>
+        <p>&lt;component&gt; + 特別な属性 is で表示を切り替えます。</p>
+        <div class="tab">
+          <a
+            href="#components-7"
+            v-for="item in tabsData"
+            :key="item.el"
+            :class="['tab-link', {active: currentTab === item.el}]"
+            @click="currentTab = item.el"
+            >{{ item.title }}</a
+          >
+        </div>
+        <component
+          :is="currentArticleComponent"
+          class="tab-contents"
+        ></component>
+      </div>
     </div>
     <script src="./vuesample-10.js"></script>
   </body>
