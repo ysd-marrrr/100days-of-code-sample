@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>10. コンポーネントの基本</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: コンポーネントの基本</h1>
+    <div id="app1">
+      <h2>1. 基本例</h2>
+      <div id="components-1"><radio-tuner></radio-tuner></div>
+
+      <h2>2. コンポーネントの再利用</h2>
+      <div id="components-2">
+        <radio-tuner></radio-tuner>
+        <radio-tuner></radio-tuner>
+        <radio-tuner></radio-tuner>
+      </div>
+
+      <h3>data は関数でなければなりません</h3>
+      <div id="components-3">
+        <radio-tuner-shared></radio-tuner-shared>
+        <radio-tuner-shared></radio-tuner-shared>
+        <radio-tuner-shared></radio-tuner-shared>
+      </div>
+
+      <h2>3. プロパティを使用した子コンポーネントへのデータの受け渡し</h2>
+      <div id="components-4">
+        <div style="display: flex; justify-content: space-around">
+          <articles
+            v-for="item in articles"
+            :key="item.id"
+            :id="item.id"
+            :title="item.title"
+            :description="item.description"
+          ></articles>
+        </div>
+
+        <h2>4. 単一のルート要素</h2>
+        <div style="display: flex; justify-content: space-around">
+          <articles-refactored
+            v-for="item in articles"
+            :key="item.id"
+            :article="item"
+          ></articles-refactored>
+        </div>
+      </div>
+
+      <h2>5. 子コンポーネントのイベントを購読する</h2>
+      <div id="components-5">
+        <p>Follower: {{ clickCount }}</p>
+        <div style="display: flex; justify-content: space-around">
+          <articles-count
+            v-for="item in articles"
+            :key="item.id"
+            :article="item"
+            @count-up="clickCount += 1"
+          ></articles-count>
+        </div>
+
+        <h3>イベントと値を送出する</h3>
+        <follow-up-tool
+          v-for="amount in [1, 100, 1000]"
+          :key="amount"
+          :amount="amount"
+          @count-up-amount="onCountUp"
+        ></follow-up-tool>
+
+        <h3>コンポーネントでv-modelを使う(v-on動作せず)</h3>
+        <p>{{ censoredMessage }}</p>
+        <custom-input v-model="censoredMessage"></custom-input>
+      </div>
+
+      <div id="components-6">
+        <h2>6. スロットによるコンテンツ配信</h2>
+        <custom-message :title="title">
+          <p style="color: red; font-size: 150%">
+            メッセージ内にHTMLを埋め込めます
+          </p>
+        </custom-message>
+      </div>
+
+      <div id="components-7">
+        <h2>7. 動的なコンポーネント</h2>
+        <p>&lt;component&gt; + 特別な属性 is で表示を切り替えます。</p>
+        <div class="tab">
+          <a
+            href="#components-7"
+            v-for="item in tabsData"
+            :key="item.el"
+            :class="['tab-link', {active: currentTab === item.el}]"
+            @click="currentTab = item.el"
+            >{{ item.title }}</a
+          >
+        </div>
+        <component
+          :is="currentArticleComponent"
+          class="tab-contents"
+        ></component>
+      </div>
+    </div>
+    <script src="./vuesample-10.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>5. クラスとスタイルのバインディング</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: クラスとスタイルのバインディング</h1>
+    <div id="app1">
+      <h2>1.オブジェクト構文</h2>
+      <p v-bind:class="{active: isActive, 'text-danger': isDanger}">何かのメッセージです。</p>
+      <p v-bind:class="defaultStyleSet">コレ読むくらいなら開発者ツールを見て</p>
+      <p v-bind:class="computedStyleSet">エラーが発生しています</p>
+
+      <h2>2. 配列構文</h2>
+      <p v-bind:class="[activeClass, dangerClass]">重要な事が書いてあります。</p>
+
+      <h2>3.インラインスタイルのバインディング</h2>
+      <p><span v-bind:style="{'background-color': activeColor}">選択中</span></p>
+      <p v-bind:style="bindedStyle">警告！</p>
+    </div>
+    <script src="./vuesample-5.js"></script>
+  </body>
+</html>

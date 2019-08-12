@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>7. リストレンダリング</title>
+    <link rel="stylesheet" type="text/css" href="vuesample.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>基本的な使い方: リストレンダリング</h1>
+    <div id="app1">
+      <h2>1. v-for で配列に要素をマッピングする</h2>
+      <ul>
+        <li v-for="(item, index) in list">
+          {{ index }} 番目: {{ item.text }}
+        </li>
+      </ul>
+
+      <h2>2. オブジェクトの v-for</h2>
+      <ul>
+        <li v-for="(value, name, index) in sampleData">{{ index }} : <strong>{{ name }}</strong> - {{ value }}</li>
+      </ul>
+
+      <h2>3. 状態の維持(v-bind:key)</h2>
+      <ul>
+        <li v-for="item in list" v-bind:key="item.hash">{{ item.text }}</li>
+      </ul>
+
+      <h2>4. オブジェクト変更検出の注意</h2>
+      <ul>
+        <li v-for="item in petitList">
+          {{ item }}
+        </li>
+      </ul>
+
+      <h2>5. フィルタ/ソートされた結果の表示</h2>
+      <ul>
+        <li>未ソート: <span v-for="s in unSortedList">{{ s }}</span></li>
+        <li>computedでソート: <span v-for="s in sortedList">{{ s }}</span></li>
+        <li>methodでソート: <span v-for="s in sortedMethodList(unSortedList)">{{ s }}</span></li>
+      </ul>
+      <button onclick="changeListContent();">中身を変えたい！</button>
+
+      <h2>6. 範囲付きv-for</h2>
+      <ul>
+        <li v-for="n in 2"> {{ list[n].text }} </li>
+      </ul>
+
+      <h2>7. &lt;template&gt;でのv-for</h2>
+      <ul>
+        <template v-for="item in list">
+          <li>{{ item.text }}</li>
+          <li role="presentation">☆★☆★☆★☆★</li>
+        </template>
+      </ul>
+
+      <h2>8. v-forとv-if</h2>
+      <li v-for="item in list" v-if="!item.hoge"> {{ item.text }}</li>
+
+      <ul v-if="listDisplay">
+        <li v-for="item in list"> {{ item }} </li>
+      </ul>
+    </div>
+    <script src="./vuesample-7.js"></script>
+  </body>
+</html>
