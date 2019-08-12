@@ -1,5 +1,7 @@
 import requests
+import sys
 from bs4 import BeautifulSoup
+
 
 def recv_orgs_users(orgs_name):
     member_id_list = []
@@ -44,10 +46,26 @@ def recv_user_json(user_id):
     return result.text
 
 
+def print_optional(optional_str):
+  if not optional_str or len(optional_str) == 0:
+      return 'なし'
+    
+  return optional_str
+
+
 member_id_list = recv_orgs_users('opst')
 
 if len(member_id_list) >= 60:
     print('ユーザー数が60を超えています。すべて取得するには認証する必要があります。')
+    sys.exit(1)
 
 for user_id in member_id_list:
     member_json = recv_user_json(user_id)
+
+
+for i, m in enumerate(member_json):
+    print('[No.{}] {} - @{}'.format(i, m['name'], m['id']))
+    print(print_optional(m['description']))
+    print('Twitter: @{}'.format(print_optional(m['twitter_screen_name'])))
+    print('GitHub: @{}'.format(print_optional(m['github_login_name'])))
+    print()
