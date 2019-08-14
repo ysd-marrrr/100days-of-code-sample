@@ -2,6 +2,13 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 
+# tokenの読み込み
+qiita_token = os.getenv('QIITA_TOKEN')
+qiita_request_header = {}
+if qiita_token:
+    print("環境変数の QIITA_TOKEN で認証します")
+    qiita_request_header = {'Authorization': 'Bearer ' + qiita_token}
+
 
 def recv_orgs_users(orgs_name):
     member_id_list = []
@@ -39,8 +46,8 @@ def recv_orgs_users(orgs_name):
 
 def recv_user_json(user_id):
     print('@{}'.format(user_id))
-    api_url = ' https://qiita.com/api/v2/users/{}'.format(user_id)
-    result = requests.get(api_url)
+    api_url = 'https://qiita.com/api/v2/users/{}'.format(user_id)
+    result = requests.get(api_url, headers=qiita_request_header)
     print('残り {} 回 / {}'.format(result.headers['rate-remaining'], result.headers['rate-limit']))
     print(result.text)
     return result.text
